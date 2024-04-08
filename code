@@ -1,0 +1,54 @@
+package javaproject;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class grade {
+     public static double getpercentage(int sum,int size) {
+    	 double percentage=(double)sum/size;
+    	 System.out.printf("the average percentae is:%.2f",percentage);
+    	 return percentage;
+     }
+     public static char getGrade(double percentage) {
+    	 if(percentage>90) {
+    		 System.out.println("you obtained A.congrats!");
+    		 return 'A';
+    	 }
+    	 else if(percentage>80 && percentage<90) {
+    		 System.out.println("you obtained B.congrats!");
+    		 return 'B';
+    	 }
+    	 else if(percentage>70 && percentage<80){
+    		 System.out.println("you obtained C.congrats!");
+    		 return 'C';
+    	 }
+    	 else if(percentage>60 && percentage<70) {
+    		 System.out.println("you obtained D.congrats!");
+    		 return 'D';
+    	 }
+    	 else if(percentage>50 && percentage<60) {
+    		 System.out.println("you obtained E.best of luck next time");
+    		 return 'E';
+    	 }
+    	 else {
+    		 System.out.println("OOPS!sorry you failed");
+    		 return 'F';
+    	 }
+     }
+     public static void main(String args[]) {
+    	 Scanner sc=new Scanner(System.in);
+    	 int sum=0;
+    	System.out.println("enter the number of subjects:");
+    	 int size=sc.nextInt();
+    	int[] num=new int[size];
+    	for(int i=0;i<size;i++) {
+    		System.out.println("enter the mark of "+(i+1)+"subject:");
+    		 num[i]=sc.nextInt();
+    		 sum+=num[i];
+         }
+    	
+    	System.out.println("the total mark obtained is"+sum);
+    	double per=getpercentage(sum,size);
+    	char grade=getGrade(per);
+    	
+     }
+}
